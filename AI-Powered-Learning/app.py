@@ -25,7 +25,7 @@ def generate_ai_content(prompt: str) -> str:
         model="openai/gpt-oss-20b",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.3,
-        max_completion_tokens=1500,
+        max_completion_tokens=4000,
     )
     return response.choices[0].message.content
 
