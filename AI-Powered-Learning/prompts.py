@@ -1,22 +1,72 @@
 def learning_material_prompt(topic: str) -> str:
     return f"""
-Explain the topic "{topic}" in full detail for a student.
+You are an expert instructor and curriculum designer.
 
-Structure:
-1. Definition
-2. Key concepts
-3. How it works / process
-4. Advantages
-5. Disadvantages
-6. Real-world example
-7. Summary points
+Generate a COMPLETE and DETAILED SYLLABUS for the topic:
+"{topic}"
+
+Target length:
+- Around 1000 words (not less than 900, not more than 1100)
+
+Structure the syllabus clearly using numbered headings and subtopics.
+
+Required Syllabus Structure:
+
+1. Introduction to the Topic
+   - What the topic is
+   - Why it is important
+   - Where it is used
+
+2. Prerequisites
+   - Required background knowledge
+   - Tools or technologies needed
+
+3. Core Fundamentals
+   - Basic concepts
+   - Terminologies
+   - Core principles
+
+4. Intermediate Concepts
+   - Key components
+   - Internal working
+   - Common patterns or methods
+
+5. Advanced Concepts
+   - Complex topics
+   - Optimization techniques
+   - Best practices
+
+6. Practical Implementation
+   - Step-by-step workflow
+   - Common use cases
+   - Hands-on examples (conceptual, no code unless necessary)
+
+7. Tools and Ecosystem
+   - Related libraries, frameworks, or tools
+   - Industry-standard practices
+
+8. Common Mistakes and Pitfalls
+   - Beginner mistakes
+   - Performance or design issues
+
+9. Real-World Applications
+   - Industry use cases
+   - Case-study-style explanations
+
+10. Career and Learning Path
+    - Roles that use this topic
+    - How it fits into a professional roadmap
+
+11. Summary and Key Takeaways
+    - Bullet-point recap of the entire syllabus
 
 Rules:
 - Use clear headings
-- Use bullet points where possible
-- Keep each section concise (3–5 bullets max)
-- Avoid long paragraphs
-- No unnecessary introduction or conclusion
+- Use bullet points wherever possible
+- Each section must be well-detailed (not shallow)
+- Avoid long paragraphs (max 3–4 lines)
+- No unnecessary filler content
+- Output must be plain text (no markdown, no code blocks)
 """
 
 
@@ -48,20 +98,4 @@ Format:
 
 Create EXACTLY 5 MCQs on:
 {topic}
-"""
-
-
-def translate_mcq_block_prompt(language: str, mcq: dict) -> str:
-    return f"""
-Translate the following MCQ into {language}.
-
-Rules:
-- Translate only question, options, explanation
-- DO NOT change option keys (A, B, C, D)
-- DO NOT change answer letter
-- Return ONLY valid JSON
-- No markdown
-
-MCQ:
-{mcq}
 """
